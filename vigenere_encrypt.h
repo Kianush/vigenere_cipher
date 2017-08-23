@@ -4,11 +4,12 @@
 #include <stdio.h>
 #include <ctype.h>
 //===========================================================================================================
-void vigenere_encrypt(const char * p_source_file, const char * p_dest_file);
-void vigenere_decrypt(const char * p_source_file, const char * p_dest_file);
-void frequence_analiz(const char * p_source_file, const char * p_dest_file);
+int vigenere_encrypt(const char * p_source_file, const char * p_dest_file);
+int vigenere_decrypt(const char * p_source_file, const char * p_dest_file);
+int vigenere_decrypt_with_guess_key(FILE * p_file_source, int lenght_guess_key);
+int frequence_analiz(const char * p_source_file);
 //===========================================================================================================
-void set_data();
+int set_data();
 void free_data();
 //===========================================================================================================
 void set_english_lower_character_alphabet(char *p_alphabet);
@@ -22,17 +23,18 @@ char get_vigenere_decrypted_char(const char ch_source, const int position,
 void reset_array_symbols_frequence_into_crypted_text();
 void convolution_with_basic_sequence(double * p_researched_sequence, double * p_basic_sequence,
                                      double *p_temp, const int size);
-void test_convolution_with_basic_sequence();
-void autocorrelation_research(double * pd_convolution_result,
-                              double * pd_basic_sequence,
-                              double * pd_convolution_buffer,
-                              int lenght_sequence,
-                              double * p_max_to_middle_others_relation,
-                              double * p_sigma_middle_level);
 void correlation_research(double * pd_sequence,
                           int lenght_sequence,
                           double * p_max_to_middle_others_relation,
                           double * p_sigma_middle_level,
                           int * p_index_maximum);
+int set_subarrays_symbols_frequence_into_crypted_text(FILE * p_file_source);
+int set_subarrays_symbols_frequence_guess_key(FILE * p_file_source,
+                                              double ** ppd_array_frequencies,
+                                              int lenght_guess_key);
+int convolution_research(int * p_index_mod_with_maximum, int * p_index_key_symbol);
+int convolution_research_rested_key_symbols(double ** ppd_array_frequencies, int lenght_guess_key);
+double ** set_key_search_data(int lenght_guess_key);
+void free_key_search_data(double ** pp_data, int lenght_guess_key);
 //===========================================================================================================
 #endif
