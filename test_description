@@ -1,0 +1,74 @@
+1. We appreciate quality of decrypting algorithm with
+   minimal text lenth that we can decrypt.
+
+   It is command option of application '--test_algorythm'
+   use ./vigenere_cipher --test_algorythm [input file]
+
+   Input file is not decrypted english text, use 
+   texts with 1000..10000 symbols to increase test time.
+
+   The input file into the application will be encrypted with known key,
+   after that decrypt with frequencies analiz algorythm,
+   if the guess key and internal known key are equaled,
+   we increase input text array, and repeat itteration.
+
+   When guess key and known key are not equal, we will stop
+   the size of input text array, at previous itteration is 
+   minimal length of text that we can decrypt. It will be
+   show at output: 'result_test_minimal_lenght is: 383'
+
+2. Tests are in bash scrypt 'test_vigenere_cipher',
+   there are 32 test cases, thats shows work of application 
+   in normals and errors routines. 
+   They are:
+	2.1 call application without arguments
+	2.2 call application with unknow arguments
+	2.3 call application with help command --help
+	
+	2.4 call application with encrypt command without  
+	    input and output files specifyed
+	2.5 call application with encrypt command with only input file
+	2.6 call application with encrypt command with non exist input
+	    file
+	2.7 call application with encrypt command with source file
+	    without read rights 
+	2.8 call application with encrypt command with dest file
+	    without write rights
+	2.9 call application with encrypt command with empty
+	    source file
+	2.10 call application with encrypt command with right specyfied files
+	
+	2.11 call application with decrypt command without  
+	    input and output files specifyed
+	2.12 call application with decrypt command with only input file
+	2.13 call application with decrypt command with non exist input
+	    file
+	2.14 call application with decrypt command with source file
+	    without read rights 
+	2.15 call application with decrypt command with dest file
+	    without write rights
+	2.16 call application with decrypt command with empty
+	    source file
+	2.17 call application with decrypt command with right specyfied files
+
+	2.18 call application with analiz command without input file
+	2.19 call application with analiz command with non exist file
+	2.20 call application with analiz command with no read rights
+	     input file
+	2.21 call application with analiz command with empty file
+	2.22 call application with analiz command with file that
+		contain one symbol
+	2.23 call application with analiz command with no sense file
+	2.24 call application with analiz command with right specifyed
+		encrypted file
+
+	2.25 call application with test algorithm command without input
+		file 
+	2.26 call application with test algorithm command with non exist
+		file
+	2.27 call application with test algorithm command with no read rights
+	     input file
+
+	2.28 - 2.32 calls application with test algorithm command with
+		diffenent kinds of text files
+

@@ -1,0 +1,598 @@
+#!/bin/bash
+return_code_1=-1
+return_code_2=-1
+return_code_3=-1
+return_code_4=-1
+return_code_5=-1
+return_code_6=-1
+return_code_7=-1
+return_code_8=-1
+return_code_9=-1
+return_code_10=-1
+return_code_11=-1
+return_code_12=-1
+return_code_13=-1
+return_code_14=-1
+return_code_15=-1
+return_code_16=-1
+return_code_17=-1
+return_code_18=-1
+return_code_19=-1
+return_code_20=-1
+return_code_21=-1
+return_code_22=-1
+return_code_23=-1
+return_code_24=-1
+return_code_25=-1
+return_code_26=-1
+return_code_27=-1
+return_code_28=-1
+return_code_29=-1
+return_code_30=-1
+return_code_31=-1
+return_code_32=-1
+echo "test_vigenere_cipher"
+echo "1 test empty arguments---------------------------------"
+return_code_1_will_be=1
+echo "./vigenere_cipher"
+./vigenere_cipher
+return_code_1=$?
+echo ''
+echo "program returned:" $return_code_1
+echo "end test empty arguments-------------------------------"
+echo ''
+
+echo "2 test unknow arguments--------------------------------"
+return_code_2_will_be=1
+echo "./vigenere_cipher --do something"
+./vigenere_cipher --do something
+return_code_2=$?
+echo ''
+echo "program returned:" $return_code_2
+echo "end test unknow arguments------------------------------"
+echo ''
+
+echo "3 test help command------------------------------------"
+return_code_3_will_be=0
+echo "./vigenere_cipher --help"
+./vigenere_cipher --help
+return_code_3=$?
+echo ''
+echo "program returned:" $return_code_3
+echo "end test help command----------------------------------"
+echo ''
+
+echo "4 test encrypt command empty arguments-----------------"
+return_code_4_will_be=1
+echo "./vigenere_cipher --encrypt_file"
+./vigenere_cipher --encrypt_file
+return_code_4=$?
+echo ''
+echo "program returned:" $return_code_4
+echo "end test encrypt command empty arguments---------------"
+echo ''
+
+echo "5 test encrypt command one argument--------------------"
+return_code_5_will_be=1
+echo "./vigenere_cipher --encrypt_file ./test_files/eveline"
+./vigenere_cipher --encrypt_file ./test_files/eveline
+return_code_5=$?
+echo ''
+echo "program returned:" $return_code_5
+echo "end test encrypt command one argument------------------"
+echo ''
+
+echo "6 test encrypt command source file not exist-----------"
+return_code_6_will_be=1
+echo "./vigenere_cipher --encrypt_file ./test_files/somefile ./encrypted/somefile"
+./vigenere_cipher --encrypt_file ./test_files/somefile ./encrypted/somefile
+return_code_6=$?
+echo ''
+echo "program returned:" $return_code_6
+echo "end test encrypt command source file not exist---------"
+echo ''
+
+echo "7 test encrypt command source file not access----------"
+return_code_7_will_be=1
+echo "./vigenere_cipher --encrypt_file ./test_files/no_read_rights ./encrypted/somefile"
+./vigenere_cipher --encrypt_file ./test_files/no_read_rights ./encrypted/somefile
+return_code_7=$?
+echo ''
+echo "program returned:" $return_code_7
+echo "end test encrypt command source file not access--------"
+echo ''
+
+echo "8 test encrypt command dest file not access------------"
+return_code_8_will_be=1
+echo "./vigenere_cipher ./test_files/eveline ./test_files/no_write_rights"
+./vigenere_cipher --encrypt_file ./test_files/eveline ./test_files/no_write_rights
+return_code_8=$?
+echo ''
+echo "program returned:" $return_code_8
+echo "end test encrypt command dest file not access----------"
+echo ''
+
+echo "9 test encrypt command empty file----------------------"
+return_code_9_will_be=1
+echo "./vigenere_cipher ./test_files/empty_file ./test_files/empty_file_encrypted"
+./vigenere_cipher --encrypt_file ./test_files/empty_file ./test_files/empty_file_encrypted
+return_code_9=$?
+echo ''
+echo "program returned:" $return_code_9
+echo "end test encrypt command empty file--------------------"
+echo ''
+
+echo "10 test encrypt command -------------------------------"
+return_code_10_will_be=0
+echo "./vigenere_cipher --encrypt_file ./test_files/eveline ./encrypted/eveline_encrypted"
+./vigenere_cipher --encrypt_file ./test_files/eveline ./encrypted/eveline_encrypted
+return_code_10=$?
+echo ''
+echo "program returned:" $return_code_10
+echo "end test encrypt --------------------------------------"
+echo ''
+
+echo "11 test decrypt command empty arguments----------------"
+return_code_11_will_be=1
+echo "./vigenere_cipher --decrypt_file"
+./vigenere_cipher --decrypt_file
+return_code_11=$?
+echo ''
+echo "program returned:" $return_code_11
+echo "end test decrypt command empty arguments---------------"
+echo ''
+
+echo "12 test decrypt command one argument-------------------"
+return_code_12_will_be=1
+echo "./vigenere_cipher --decrypt_file ./test_files/eveline"
+./vigenere_cipher --decrypt_file ./test_files/eveline
+return_code_12=$?
+echo ''
+echo "program returned:" $return_code_12
+echo "end test decrypt command one argument------------------"
+echo ''
+
+echo "13 test decrypt command source file not exist----------"
+return_code_13_will_be=1
+echo "./vigenere_cipher --decrypt_file ./test_files/somefile"
+./vigenere_cipher --decrypt_file ./test_files/somefile
+return_code_13=$?
+echo ''
+echo "program returned:" $return_code_13
+echo "end test decrypt command source file not exist---------"
+echo ''
+
+echo "14 test decrypt command source file not access----------"
+return_code_14_will_be=1
+echo "./vigenere_cipher --decrypt_file ./test_files/no_read_rights ./decrypted/somefile"
+./vigenere_cipher --decrypt_file ./test_files/no_read_rights ./decrypted/somefile
+return_code_14=$?
+echo ''
+echo "program returned:" $return_code_14
+echo "end test decrypt command source file not access--------"
+echo ''
+
+echo "15 test decrypt command dest file not access-----------"
+return_code_15_will_be=1
+echo "./vigenere_cipher --decrypt_file ./encrypted/eveline_encrypted ./test_files/no_write_rights"
+./vigenere_cipher --decrypt_file ./encrypted/eveline_encrypted ./test_files/no_write_rights
+return_code_15=$?
+echo ''
+echo "program returned:" $return_code_15
+echo "end test decrypt command dest file not access----------"
+echo ''
+
+echo "16 test decrypt command empty file---------------------"
+return_code_16_will_be=1
+echo "./vigenere_cipher --decrypt_file empty_file ./test_files/empty_file ./decrypted/empty_file_decrypted"
+./vigenere_cipher --decrypt_file ./test_files/empty_file ./decrypted/empty_file_decrypted
+return_code_16=$?
+echo ''
+echo "program returned:" $return_code_16
+echo "end test decrypt command empty file--------------------"
+echo ''
+
+echo "17 test decrypt command -------------------------------"
+return_code_17_will_be=0
+echo "./vigenere_cipher --decrypt_file ./encrypted/eveline_encrypted ./decrypted/eveline_decrypted"
+./vigenere_cipher --decrypt_file ./encrypted/eveline_encrypted ./decrypted/eveline_decrypted
+return_code_17=$?
+echo ''
+echo "program returned:" $return_code_17
+echo "end test decrypt --------------------------------------"
+echo ''
+
+echo "18 test analiz command no arguments--------------------"
+return_code_18_will_be=1
+echo "./vigenere_cipher --analiz_file"
+./vigenere_cipher --analiz_file
+return_code_18=$?
+echo ''
+echo "program returned:" $return_code_18
+echo "end test analiz command no arguments-------------------"
+echo ''
+
+echo "19 test analiz command no file exist-------------------"
+return_code_19_will_be=1
+echo "./vigenere_cipher --analiz_file ./test_files/somefile"
+./vigenere_cipher --analiz_file ./test_files/somefile
+return_code_19=$?
+echo ''
+echo "program returned:" $return_code_19
+echo "end test analiz command no file exist------------------"
+echo ''
+
+echo "20 test analiz command no read rights------------------"
+return_code_20_will_be=1
+echo "./vigenere_cipher --analiz_file ./test_files/no_read_rights"
+./vigenere_cipher --analiz_file ./test_files/no_read_rights
+return_code_20=$?
+echo ''
+echo "program returned:" $return_code_20
+echo "end test analiz command no no read rights--------------"
+echo ''
+
+echo "21 test analiz command empty file----------------------"
+return_code_21_will_be=1
+echo "./vigenere_cipher --analiz_file ./test_files/empty_file"
+./vigenere_cipher --analiz_file ./test_files/empty_file
+return_code_21=$?
+echo ''
+echo "program returned:" $return_code_21
+echo "end test analiz command no empty file------------------"
+echo ''
+
+echo "22 test analiz command one symbol file-----------------"
+return_code_22_will_be=0
+echo "./vigenere_cipher --analiz_file ./test_files/one_symbol_file"
+./vigenere_cipher --analiz_file ./test_files/one_symbol_file
+return_code_22=$?
+echo ''
+echo "program returned:" $return_code_22
+echo "end test analiz command one symbol file----------------"
+echo ''
+
+echo "23 test analiz command no sence text file--------------"
+return_code_23_will_be=0
+echo "./vigenere_cipher --analiz_file ./test_files/no_sence_text "
+./vigenere_cipher --analiz_file ./test_files/no_sence_text 
+return_code_23=$?
+echo ''
+echo "program returned:" $return_code_23
+echo "end test analiz command no sence text file-------------"
+echo ''
+
+echo "24 test analiz command encrypted text file-------------"
+return_code_24_will_be=0
+echo "./vigenere_cipher --analiz_file ./encrypted/eveline_encrypted"
+./vigenere_cipher --analiz_file ./encrypted/eveline_encrypted 
+return_code_24=$?
+echo ''
+echo "program returned:" $return_code_24
+echo "end test analiz command encrypted text file------------"
+echo ''
+
+echo "25 test command --test_algorithm no arguments----------"
+return_code_25_will_be=1
+echo "./vigenere_cipher --test_algorithm"
+./vigenere_cipher --test_algorithm
+return_code_25=$?
+echo ''
+echo "program returned:" $return_code_25
+echo "end test command --test_algorithm no arguments---------"
+echo ''
+
+echo "26 test command --test_algorithm no file exist---------"
+return_code_26_will_be=1
+echo "./vigenere_cipher --test_algorithm ./test_files/somefile"
+./vigenere_cipher --test_algorithm ./test_files/somefile
+return_code_26=$?
+echo ''
+echo "program returned:" $return_code_26
+echo "end test command --test_algorithm no file exist--------"
+echo ''
+
+echo "27 test command --test_algorithm no read rights--------"
+return_code_27_will_be=1
+echo "./vigenere_cipher --test_algorithm ./test_files/no_read_rights"
+./vigenere_cipher --test_algorithm ./test_files/no_read_rights
+return_code_27=$?
+echo ''
+echo "program returned:" $return_code_27
+echo "end test command --test_algorithm no read rights-------"
+echo ''
+
+echo "28 test command --test_algorithm first_text------------"
+return_code_28_will_be=0
+echo "./vigenere_cipher --test_algorithm ./test_files/first_text > minimal_text_lenght_result"
+./vigenere_cipher --test_algorithm ./test_files/first_text > minimal_text_lenght_result
+return_code_28=$?
+echo ''
+echo "program returned:" $return_code_28
+echo "end test command --test_algorithm first_text-----------"
+echo ''
+
+echo "29 test command --test_algorithm second_text-----------"
+return_code_29_will_be=0
+echo "./vigenere_cipher --test_algorithm ./test_files/second_text >> minimal_text_lenght_result"
+./vigenere_cipher --test_algorithm ./test_files/second_text >> minimal_text_lenght_result
+return_code_29=$?
+echo ''
+echo "program returned:" $return_code_29
+echo "end test command --test_algorithm second_text----------"
+echo ''
+
+echo "30 test command --test_algorithm third_text------------"
+return_code_30_will_be=0
+echo "./vigenere_cipher --test_algorithm ./test_files/third_text >> minimal_text_lenght_result"
+./vigenere_cipher --test_algorithm ./test_files/third_text >> minimal_text_lenght_result
+return_code_30=$?
+echo ''
+echo "program returned:" $return_code_30
+echo "end test command --test_algorithm third_text-----------"
+echo ''
+
+echo "31 test command --test_algorithm fourth_text-----------"
+return_code_31_will_be=0
+echo "./vigenere_cipher --test_algorithm ./test_files/fourth_text >> minimal_text_lenght_result"
+./vigenere_cipher --test_algorithm ./test_files/fourth_text >> minimal_text_lenght_result
+return_code_31=$?
+echo ''
+echo "program returned:" $return_code_31
+echo "end test command --test_algorithm fourth_text----------"
+echo ''
+
+echo "32 test command --test_algorithm fifth_text------------"
+return_code_32_will_be=0
+echo "./vigenere_cipher --test_algorithm ./test_files/fifth_text >> minimal_text_lenght_result"
+./vigenere_cipher --test_algorithm ./test_files/fifth_text >> minimal_text_lenght_result
+return_code_32=$?
+echo ''
+echo "program returned:" $return_code_32
+echo "end test command --test_algorithm fifth_text-----------"
+echo ''
+
+echo "*****************SUMMARY******************************"
+if [ "$return_code_1_will_be" -eq "$return_code_1" ]
+then
+	echo "1 test empty arguments--------------------------------- yes" 
+else
+	echo "1 test empty arguments--------------------------------- no" 
+fi
+
+if [ "$return_code_2_will_be" -eq "$return_code_2" ]
+then
+	echo "2 test unknow arguments-------------------------------- yes"
+else
+	echo "2 test unknow arguments-------------------------------- no"
+fi
+if [ "$return_code_3_will_be" -eq "$return_code_3" ]
+then
+	echo "3 test help command------------------------------------ yes"
+else
+	echo "3 test help command------------------------------------ no"
+fi
+if [ "$return_code_4_will_be" -eq "$return_code_4" ]
+then
+	echo "4 test encrypt command empty arguments----------------- yes"
+else
+	echo "4 test encrypt command empty arguments----------------- no"
+fi
+if [ "$return_code_5_will_be" -eq "$return_code_5" ]
+then
+	echo "5 test encrypt command one argument-------------------- yes"
+else
+	echo "5 test encrypt command one argument-------------------- no"
+fi
+if [ "$return_code_6_will_be" -eq "$return_code_6" ]
+then
+	echo "6 test encrypt command source file not exist----------- yes"
+else
+	echo "6 test encrypt command source file not exist----------- no"
+fi
+if [ "$return_code_7_will_be" -eq "$return_code_7" ]
+then
+	echo "7 test encrypt command source file not access---------- yes"
+else
+	echo "7 test encrypt command source file not access---------- no"
+fi
+if [ "$return_code_8_will_be" -eq "$return_code_8" ]
+then
+	echo "8 test encrypt command dest file not access------------ yes"
+else
+	echo "8 test encrypt command dest file not access------------ no"
+fi
+
+if [ "$return_code_9_will_be" -eq "$return_code_9" ]
+then
+	echo "9 test encrypt command empty file---------------------- yes"
+else
+	echo "9 test encrypt command empty file---------------------- no"
+fi
+if [ "$return_code_10_will_be" -eq "$return_code_10" ]
+then
+	echo "10 test encrypt command ------------------------------- yes"
+else
+	echo "10 test encrypt command ------------------------------- no"
+fi
+if [ "$return_code_11_will_be" -eq "$return_code_11" ]
+then
+	echo "11 test decrypt command empty arguments---------------- yes"
+else
+	echo "11 test decrypt command empty arguments---------------- no"
+fi
+if [ "$return_code_12_will_be" -eq "$return_code_12" ]
+then
+	echo "12 test decrypt command one argument------------------- yes"
+else
+	echo "12 test decrypt command one argument------------------- no"
+fi
+if [ "$return_code_13_will_be" -eq "$return_code_13" ]
+then
+	echo "13 test decrypt command source file not exist---------- yes"
+else
+	echo "13 test decrypt command source file not exist---------- no"
+fi
+if [ "$return_code_14_will_be" -eq "$return_code_14" ]
+then
+	echo "14 test decrypt command source file not access--------- yes"
+else
+	echo "14 test decrypt command source file not access--------- no"
+fi
+if [ "$return_code_15_will_be" -eq "$return_code_15" ]
+then
+	echo "15 test decrypt command dest file not access----------- yes"
+else
+	echo "15 test decrypt command dest file not access----------- no"
+fi
+
+if [ "$return_code_16_will_be" -eq "$return_code_16" ]
+then
+	echo "16 test decrypt command empty file--------------------- yes"
+else
+	echo "16 test decrypt command empty file--------------------- no"
+fi
+if [ "$return_code_17_will_be" -eq "$return_code_17" ]
+then
+	echo "17 test decrypt command ------------------------------- yes"
+else
+	echo "17 test decrypt command ------------------------------- no"
+fi
+if [ "$return_code_18_will_be" -eq "$return_code_18" ]
+then
+	echo "18 test analiz command no arguments-------------------- yes"
+else	
+	echo "18 test analiz command no arguments-------------------- no"
+fi
+if [ "$return_code_19_will_be" -eq "$return_code_19" ]
+then
+	echo "19 test analiz command no file exist------------------- yes"
+else
+	echo "19 test analiz command no file exist------------------- no"
+fi
+if [ "$return_code_20_will_be" -eq "$return_code_20" ]
+then
+	echo "20 test analiz command no read rights------------------ yes"
+else
+	echo "20 test analiz command no read rights------------------ no"
+fi
+if [ "$return_code_21_will_be" -eq "$return_code_21" ]
+then
+	echo "21 test analiz command empty file---------------------- yes"
+else
+	echo "21 test analiz command empty file---------------------- no"
+fi
+if [ "$return_code_22_will_be" -eq "$return_code_22" ]
+then
+	echo "22 test analiz command one symbol file----------------- yes"
+else
+	echo "22 test analiz command one symbol file----------------- no"
+fi
+if [ "$return_code_23_will_be" -eq "$return_code_23" ]
+then
+	echo "23 test analiz command no sense text file-------------- yes"
+else
+	echo "23 test analiz command no sense text file-------------- no"
+fi
+if [ "$return_code_24_will_be" -eq "$return_code_24" ]
+then
+	echo "24 test analiz command encrypted text file------------- yes"
+else
+	echo "24 test analiz command encrypted text file------------- no"
+fi
+if [ "$return_code_25_will_be" -eq "$return_code_25" ]
+then
+        echo "25 test command --test_algorithm no arguments---------- yes"
+else
+        echo "25 test command --test_algorithm no arguments---------- no"
+fi
+if [ "$return_code_26_will_be" -eq "$return_code_26" ]
+then
+        echo "26 test command --test_algorithm no file exist--------- yes"
+else
+        echo "26 test command --test_algorithm no file exist--------- no"
+fi
+if [ "$return_code_27_will_be" -eq "$return_code_27" ]
+then
+        echo "27 test command --test_algorithm no read rights-------- yes"
+else
+        echo "27 test command --test_algorithm no read rights-------- no"
+fi
+if [ "$return_code_28_will_be" -eq "$return_code_28" ]
+then
+        echo "28 test command --test_algorithm first_text------------ yes"
+else
+        echo "28 test command --test_algorithm first_text------------ no"
+fi
+if [ "$return_code_29_will_be" -eq "$return_code_29" ]
+then
+        echo "29 test command --test_algorithm second_text----------- yes"
+else
+        echo "29 test command --test_algorithm second_text----------- no"
+fi
+if [ "$return_code_30_will_be" -eq "$return_code_30" ]
+then
+        echo "30 test command --test_algorithm third_text------------ yes"
+else
+        echo "30 test command --test_algorithm third_text------------ no"
+fi
+if [ "$return_code_31_will_be" -eq "$return_code_31" ]
+then
+        echo "31 test command --test_algorithm fourth_text----------- yes"
+else
+        echo "31 test command --test_algorithm fourth_text----------- no"
+fi
+if [ "$return_code_32_will_be" -eq "$return_code_32" ]
+then
+        echo "32 test command --test_algorithm fifth_text------------ yes"
+else
+        echo "32 test command --test_algorithm fifth_text------------ no"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

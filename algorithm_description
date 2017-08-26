@@ -1,0 +1,47 @@
+Algorithm description
+1. We allocate two dimension array 'symbols_frequence_into_crypted_text' 
+   with dimensions MAX_KEY_LENGHT+1 x ALPABET_POWER,
+   where MAX_KEY_LENGHT - maximum key lenght, 12 in this version, 
+	 ALPHABET_POWER - quantity letters in english aplhabet.
+   We also have typical frequencies of letter in english texts
+   placed in array 'symbols_frequence_part_of_one'.
+
+2. We get by symbols encrypted text from file, count the symbols of letters,
+   and increment cells of two dimension array, related to decimation step
+   and getted symbols. So in the first column of two dimension array
+   we have count of each first symbol, in the second count of each second, etc.
+
+3. We normalize the two dimension array, after that we have frequencies of letters (in rows)
+   in the encrypted text with different steps of decimation (in columns)
+
+4. We will find correlation sequence between symbols_frequence_into_crypted_text[column]
+   each column contained frequencies letters array 
+   and symbols_frequence_part_of_one, that contained typical frequencies letters in
+   english texts, ordered by index ('a'-0 ... 'z'-25)
+
+5. We find ratio 'maximum : middle_level' in each of correlated sequensies         
+
+6. We have array of ratios, we will find index of maximum in this array, it
+   is guess lenght of vigenere key
+
+7. We return to the correlated sequence, pointed (marked) as maximum from 6 step
+
+8. In the correlation sequence we will find maximum element, index of it show the
+   first letter of vigenere key, in order in english alphabet
+
+9. We allocate two dimension array with dimensions guess_key_lenght x ALPABET_POWER
+
+10. We will find frequencies of symbols ordered by number of rests to guess key lenght 
+    [number_of_symbol % guess_key_lenght].
+
+11. We find correlation between each column that contained frequencies,
+    the number of the column relatad to number of letters in guess key
+
+12. We find indexes of maximums in the correlated sequencies,
+    the indexes is numbers of letters key in english alphabet.
+
+13. We have guess key and can decrypt the vigenere encrypted text
+ 
+   
+   
+  
